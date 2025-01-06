@@ -1,31 +1,140 @@
-let inputValue = "Your input here"; // Assign the actual input value
-const apiToken = "your_actual_api_token"; // Replace with your actual token
-const apiKey = "your_actual_api_key";    // Replace with your actual API key
-
-fetch("http://127.0.0.1:7860/api/v1/run/prototype?stream=false", {
-  method: "POST",
-  headers: {
-    Authorization: `Bearer ${apiToken}`,
-    "Content-Type": "application/json",
-    "x-api-key": apiKey, // Replace with your API key
-  },
-  body: JSON.stringify({
-    input_value: inputValue,
-    output_type: "chat",
-    input_type: "chat",
-    tweaks: {
-      "ChatInput-w7erC": {},
-      "AstraDB-XZAmC": {},
-      "GoogleGenerativeAIModel-9FoAi": {},
-      "ChatOutput-gm65H": {},
+fetch(
+  "http://127.0.0.1:7860/api/v1/run/674c5412-072a-473a-b4e4-52905fc9e9cb?stream=false",
+  {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer <TOKEN>",
+      "Content-Type": "application/json",
+      "x-api-key": "<your api key>", // Ensure quotes around the placeholder key
     },
-  }),
-})
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    return res.json();
-  })
-  .then((data) => console.log("Response:", data))
+    body: JSON.stringify({
+      output_type: "chat",
+      input_type: "chat",
+      tweaks: {
+        "ChatInput-w7erC": {
+          files: "",
+          background_color: "",
+          chat_icon: "",
+          input_value:
+            "hey which type post should i post to get maximum engagement",
+          sender: "User",
+          sender_name: "User",
+          session_id: "",
+          should_store_message: true,
+          text_color: "",
+        },
+        "File-EdFel": {
+          path: "",
+          concurrency_multithreading: 4,
+          silent_errors: false,
+          use_multithreading: false,
+        },
+        "SplitText-8XZ2r": {
+          chunk_overlap: 200,
+          chunk_size: 1000,
+          separator: "\n",
+        },
+        "AstraDB-XZAmC": {
+          advanced_search_filter: "{}",
+          api_endpoint: "ASTRA_DB_API_ENDPOINT",
+          batch_size: null,
+          bulk_delete_concurrency: null,
+          bulk_insert_batch_concurrency: null,
+          bulk_insert_overwrite_concurrency: null,
+          collection_indexing_policy: "",
+          collection_name: "collection_latest",
+          embedding_choice: "Embedding Model",
+          keyspace: "",
+          metadata_indexing_exclude: "",
+          metadata_indexing_include: "",
+          metric: "cosine",
+          number_of_results: 4,
+          pre_delete_collection: false,
+          search_filter: {},
+          search_input: "",
+          search_score_threshold: 0,
+          search_type: "Similarity",
+          setup_mode: "Sync",
+          token: "ASTRA_DB_APPLICATION_TOKEN",
+        },
+        "Google Generative AI Embeddings-YpPQW": {
+          api_key: "GOOGLE_API_KEY",
+          model_name: "models/text-embedding-004",
+        },
+        "Prompt-HTpAF": {
+          template:
+            "{context}.\nFrom the above context calculate all the required metric and generate insights percentage based by comparing with different post types based on users question and history if needed.\n{question}\n{history}",
+          context: "",
+          question: "",
+          history: "",
+        },
+        "AstraDB-sv6vK": {
+          advanced_search_filter: "{}",
+          api_endpoint: "ASTRA_DB_API_ENDPOINT",
+          batch_size: null,
+          bulk_delete_concurrency: null,
+          bulk_insert_batch_concurrency: null,
+          bulk_insert_overwrite_concurrency: null,
+          collection_indexing_policy: "",
+          collection_name: "collection_latest",
+          embedding_choice: "Embedding Model",
+          keyspace: "",
+          metadata_indexing_exclude: "",
+          metadata_indexing_include: "",
+          metric: "cosine",
+          number_of_results: 4,
+          pre_delete_collection: false,
+          search_filter: {},
+          search_input: "",
+          search_score_threshold: 0,
+          search_type: "Similarity",
+          setup_mode: "Sync",
+          token: "ASTRA_DB_APPLICATION_TOKEN",
+        },
+        "Google Generative AI Embeddings-pmhlg": {
+          api_key: "GOOGLE_API_KEY",
+          model_name: "models/text-embedding-004",
+        },
+        "ParseData-EnYIW": {
+          sep: "\n",
+          template: "{text}",
+        },
+        "GoogleGenerativeAIModel-9FoAi": {
+          google_api_key: "GOOGLE_API_KEY",
+          input_value: "",
+          max_output_tokens: 700,
+          model: "gemini-1.5-pro",
+          n: null,
+          stream: false,
+          system_message:
+            "keep the answer short give only insights based on percentages",
+          temperature: 0.1,
+          top_k: null,
+          top_p: null,
+        },
+        "ChatOutput-gm65H": {
+          background_color: "",
+          chat_icon: "",
+          data_template: "{text}",
+          input_value: "",
+          sender: "Machine",
+          sender_name: "AI",
+          session_id: "",
+          should_store_message: true,
+          text_color: "",
+        },
+        "Memory-WCYTe": {
+          n_messages: 100,
+          order: "Ascending",
+          sender: "Machine and User",
+          sender_name: "",
+          session_id: "",
+          template: "{sender_name}: {text}",
+        },
+      },
+    }),
+  }
+)
+  .then((res) => res.json())
+  .then((data) => console.log(data))
   .catch((error) => console.error("Error:", error));

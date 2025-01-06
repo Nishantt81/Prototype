@@ -4,7 +4,7 @@ TWEAKS = {
     "files": "",
     "background_color": "",
     "chat_icon": "",
-    "input_value": "give me insights on reels",
+    "input_value": "hey which type post should i post to get maximum engagement",
     "sender": "User",
     "sender_name": "User",
     "session_id": "",
@@ -12,7 +12,7 @@ TWEAKS = {
     "text_color": ""
   },
   "File-EdFel": {
-    "path": "Updated_Social_Media_Data_with_Total_Engagement.csv",
+    "path": "",
     "concurrency_multithreading": 4,
     "silent_errors": False,
     "use_multithreading": False
@@ -50,9 +50,10 @@ TWEAKS = {
     "model_name": "models/text-embedding-004"
   },
   "Prompt-HTpAF": {
-    "template": "{context}.\nFrom the above context calculate all the required metric  and generate insights  percentage based by comparing with different post types based on users question.\n{question}",
+    "template": "{context}.\nFrom the above context calculate all the required metric  and generate insights  percentage based by comparing with different post types based on users question and history if needed.\n{question}\n{history}",
     "context": "",
-    "question": ""
+    "question": "",
+    "history": ""
   },
   "AstraDB-sv6vK": {
     "advanced_search_filter": "{}",
@@ -107,6 +108,14 @@ TWEAKS = {
     "session_id": "",
     "should_store_message": True,
     "text_color": ""
+  },
+  "Memory-WCYTe": {
+    "n_messages": 100,
+    "order": "Ascending",
+    "sender": "Machine and User",
+    "sender_name": "",
+    "session_id": "",
+    "template": "{sender_name}: {text}"
   }
 }
 
